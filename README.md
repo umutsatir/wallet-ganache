@@ -28,4 +28,4 @@ Save the file then run these commands:
 
 ## Appendix
 
-This program is for educational purpose ONLY. Keys can be stolen if you use it in mainnets.
+This program is for educational purpose ONLY. Keys can be stolen if you use it in public.
