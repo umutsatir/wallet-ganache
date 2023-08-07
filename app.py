@@ -7,8 +7,9 @@ from bip44 import Wallet
 
 ## pip install -r reguirements.txt
 
-current_user_file = os.path.join(os.path.dirname(__file__), "current_user.txt")
-accounts_file = os.path.join(os.path.dirname(__file__), "accounts.txt")
+## it might not be suitable for your folder path, change it accordingly
+current_user_file = "current_user.txt"
+accounts_file = "accounts.txt"
 
 with open(accounts_file, "r") as file:
     wallets = {}
@@ -49,9 +50,7 @@ def create_account(w3, username, password):
             return
         else:
             wallets[w3.eth.accounts[i]] = [username, password]
-            with open(
-                "/Users/umutsatir/Desktop/wallet-project/accounts.txt", "a"
-            ) as file:
+            with open(accounts_file, "a") as file:
                 file.write(w3.eth.accounts[i] + " " + username + " " + password + "\n")
             i += 1
             st.success("Wallet created", icon="👛")
@@ -104,9 +103,7 @@ if st.sidebar.button("Create Account"):
         st.warning("User already exists", icon="⚠️")
     else:
         current_user = create_account(w3, username, password)
-        with open(
-            "/Users/umutsatir/Desktop/wallet-project/current_user.txt", "a"
-        ) as file:
+        with open(current_user_file, "a") as file:
             file.write(current_user)
 elif st.sidebar.button("Login"):
     if st.sidebar.button("Logout"):
@@ -122,9 +119,7 @@ elif st.sidebar.button("Login"):
     else:
         current_user = login(username, password)
         if current_user != "":
-            with open(
-                "/Users/umutsatir/Desktop/wallet-project/current_user.txt", "a"
-            ) as file:
+            with open(current_user_file, "a") as file:
                 file.write(current_user)
 elif st.sidebar.button("Logout"):
     if current_user == "":
