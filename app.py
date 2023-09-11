@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from bip44 import Wallet
 
-## pip install -r reguirements.txt
+## pip install -r requirements.txt
 
 ## it might not be suitable for your folder path, change it accordingly
 current_user_file = "current_user.txt"
